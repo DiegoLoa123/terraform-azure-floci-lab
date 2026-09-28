@@ -19,6 +19,6 @@ provider "azurerm" {
   client_id       = "00000000-0000-0000-0000-000000000003"
   client_secret   = "fake-secret"
 
-  use_cli = false
+  use_cli                         = false
   resource_provider_registrations = "none"
 }

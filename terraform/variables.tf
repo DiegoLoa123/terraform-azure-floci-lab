@@ -9,3 +9,42 @@ variable "resource_group_name" {
   type        = string
   default     = "rg-microservices-local"
 }
+
+
+# ============================================================
+
+variable "vnet_name" {
+  description = "Name of the Virtual Network used by the microservices laboratory."
+  type        = string
+  default     = "vnet-microservices-local"
+}
+
+variable "vnet_address_space" {
+  description = "Address space assigned to the Virtual Network."
+  type        = list(string)
+  default     = ["10.0.0.0/16"]
+}
+
+variable "aks_subnet_name" {
+  description = "Name of the subnet reserved for AKS."
+  type        = string
+  default     = "subnet-aks"
+}
+
+variable "aks_subnet_address_prefixes" {
+  description = "Address prefixes assigned to the AKS subnet."
+  type        = list(string)
+  default     = ["10.0.1.0/24"]
+}
+
+variable "data_subnet_name" {
+  description = "Name of the subnet reserved for data services."
+  type        = string
+  default     = "subnet-data"
+}
+
+variable "data_subnet_address_prefixes" {
+  description = "Address prefixes assigned to the data subnet."
+  type        = list(string)
+  default     = ["10.0.2.0/24"]
+}

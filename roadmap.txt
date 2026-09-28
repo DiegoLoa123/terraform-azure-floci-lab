@@ -3,12 +3,12 @@ FASE 1                         ✅ COMPLETADA
 Terraform → Floci-AZ
    └── Resource Group          ✅ rg-microservices-local
 
-FASE 2                         ⏭️ SIGUIENTE
-   └── Virtual Network
-        ├── subnet-aks
-        └── subnet-data
+FASE 2                         ✅ COMPLETADA
+   └── Virtual Network         ✅ vnet-microservices-local> 10.0.0.0/16
+        ├── subnet-aks         ✅ 10.0.1.0/24
+        └── subnet-data        ✅ 10.0.2.0/24
 
-FASE 3
+FASE 3                         ⏭️ SIGUIENTE
    ├── Storage Account
    └── Key Vault
 
