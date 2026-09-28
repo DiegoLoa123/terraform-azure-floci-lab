@@ -1,0 +1,4 @@
+{
+  "hostnames" : [ "localhost", "127.0.0.1", "0.0.0.0", "*.localhost", "localhost.floci-az.io", "*.localhost.floci-az.io", "*.vault.azure.net", "*.managedhsm.azure.net", "*.azurecr.io", "host.docker.internal" ],
+  "version" : "0.13.0"
+}

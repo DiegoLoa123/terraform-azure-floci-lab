@@ -1,0 +1,29 @@
+
+FASE 1                         ✅ COMPLETADA
+Terraform → Floci-AZ
+   └── Resource Group          ✅ rg-microservices-local
+
+FASE 2                         ⏭️ SIGUIENTE
+   └── Virtual Network
+        ├── subnet-aks
+        └── subnet-data
+
+FASE 3
+   ├── Storage Account
+   └── Key Vault
+
+FASE 4
+   └── Service Bus
+        └── order-created
+
+FASE 5
+   └── PostgreSQL
+
+FASE 6
+   └── AKS
+        ├── order-service
+        ├── product-service
+        └── inventory-service
+
+FASE 7
+   └── API Management
