@@ -12,6 +12,8 @@ variable "resource_group_name" {
 
 
 # ============================================================
+# Networking
+# ============================================================
 
 variable "vnet_name" {
   description = "Name of the Virtual Network used by the microservices laboratory."
@@ -47,4 +49,32 @@ variable "data_subnet_address_prefixes" {
   description = "Address prefixes assigned to the data subnet."
   type        = list(string)
   default     = ["10.0.2.0/24"]
+}
+
+
+# ============================================================
+# Storage
+# ============================================================
+
+variable "storage_account_name" {
+  description = "Name of the Storage Account used by the microservices laboratory."
+  type        = string
+  default     = "stmicroserviceslocal"
+}
+
+variable "storage_container_name" {
+  description = "Name of the Blob Storage container."
+  type        = string
+  default     = "microservices"
+}
+
+
+# ============================================================
+# Key Vault
+# ============================================================
+
+variable "key_vault_name" {
+  description = "Name of the Key Vault used by the microservices laboratory."
+  type        = string
+  default     = "kv-microservices-local"
 }

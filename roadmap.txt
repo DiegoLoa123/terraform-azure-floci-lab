@@ -8,9 +8,10 @@ FASE 2                         ✅ COMPLETADA
         ├── subnet-aks         ✅ 10.0.1.0/24
         └── subnet-data        ✅ 10.0.2.0/24
 
-FASE 3                         ⏭️ SIGUIENTE
-   ├── Storage Account
-   └── Key Vault
+FASE 3
+├── Storage Account            ✅ integrado
+│   └── microservices          ✅ integrado
+└── Key Vault                  ⏭️ AHORA
 
 FASE 4
    └── Service Bus
