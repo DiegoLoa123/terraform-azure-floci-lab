@@ -43,7 +43,7 @@ resource "azurerm_storage_account" "microservices" {
     ignore_changes = [
       queue_encryption_key_type,
       table_encryption_key_type,
-      https_traffic_only_enabled,
+      enable_https_traffic_only,
       min_tls_version
     ]
   }
@@ -51,6 +51,22 @@ resource "azurerm_storage_account" "microservices" {
 
 resource "azurerm_storage_container" "microservices" {
   name                  = var.storage_container_name
-  storage_account_id    = azurerm_storage_account.microservices.id
+  storage_account_name  = azurerm_storage_account.microservices.name
   container_access_type = "private"
+}
+
+# ============================================================
+# Key Vault
+# ============================================================
+
+resource "azurerm_key_vault" "microservices" {
+  name                = var.key_vault_name
+  location            = azurerm_resource_group.microservices.location
+  resource_group_name = azurerm_resource_group.microservices.name
+
+  tenant_id = "00000000-0000-0000-0000-000000000002"
+  sku_name  = "standard"
+
+  soft_delete_retention_days = 7
+  purge_protection_enabled   = false
 }

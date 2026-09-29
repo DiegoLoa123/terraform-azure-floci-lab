@@ -8,7 +8,8 @@ output "resource_group_location" {
   value       = azurerm_resource_group.microservices.location
 }
 
-
+# ============================================================
+# Networking
 # ============================================================
 
 output "vnet_name" {
@@ -29,4 +30,18 @@ output "aks_subnet_name" {
 output "data_subnet_name" {
   description = "Name of the data subnet."
   value       = azurerm_subnet.data.name
+}
+
+# ============================================================
+# Key Vault
+# ============================================================
+
+output "key_vault_name" {
+  description = "Name of the local Key Vault."
+  value       = azurerm_key_vault.microservices.name
+}
+
+output "key_vault_uri" {
+  description = "Local Key Vault data-plane URI returned by Floci-AZ."
+  value       = azurerm_key_vault.microservices.vault_uri
 }

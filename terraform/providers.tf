@@ -4,13 +4,14 @@ terraform {
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = "4.81.0"
+      version = "3.117.1"
     }
   }
 }
 
 provider "azurerm" {
   features {}
+
   environment   = "stack"
   metadata_host = "localhost:4577"
 
@@ -19,6 +20,6 @@ provider "azurerm" {
   client_id       = "00000000-0000-0000-0000-000000000003"
   client_secret   = "fake-secret"
 
-  use_cli                         = false
-  resource_provider_registrations = "none"
+  use_cli                    = false
+  skip_provider_registration = true
 }

@@ -9,11 +9,15 @@ FASE 2                         ✅ COMPLETADA
         └── subnet-data        ✅ 10.0.2.0/24
 
 FASE 3
-├── Storage Account            ✅ integrado
+├── Storage Account            ✅ COMPLETADA
+├── Blob Container
 │   └── microservices          ✅ integrado
-└── Key Vault                  ⏭️ AHORA
+└── Key Vault
+    └── kv-microservices-local ✅ integrado
+        └── vault_uri:
+            https://kv-microservices-local.vault.azure.net/
 
-FASE 4
+FASE 4                         ⏭️ AHORA
    └── Service Bus
         └── order-created
 
