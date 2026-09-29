@@ -33,11 +33,12 @@ resource "azurerm_subnet" "data" {
 # ============================================================
 
 resource "azurerm_storage_account" "microservices" {
-  name                     = var.storage_account_name
-  resource_group_name      = azurerm_resource_group.microservices.name
-  location                 = azurerm_resource_group.microservices.location
-  account_tier             = "Standard"
-  account_replication_type = "LRS"
+  name                             = var.storage_account_name
+  resource_group_name              = azurerm_resource_group.microservices.name
+  location                         = azurerm_resource_group.microservices.location
+  account_tier                     = "Standard"
+  account_replication_type         = "LRS"
+  cross_tenant_replication_enabled = false
 
   lifecycle {
     ignore_changes = [
@@ -67,6 +68,6 @@ resource "azurerm_key_vault" "microservices" {
   tenant_id = "00000000-0000-0000-0000-000000000002"
   sku_name  = "standard"
 
-  soft_delete_retention_days = 7
+  soft_delete_retention_days = 90
   purge_protection_enabled   = false
 }
