@@ -78,3 +78,14 @@ variable "key_vault_name" {
   type        = string
   default     = "kv-microservices-local"
 }
+
+
+# ============================================================
+# Service Bus
+# ============================================================
+
+variable "service_bus_queue_name" {
+  description = "Name of the Service Bus queue used for order-created events."
+  type        = string
+  default     = "order-created"
+}

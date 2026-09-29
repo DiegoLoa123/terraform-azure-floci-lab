@@ -17,11 +17,11 @@ FASE 3
         └── vault_uri:
             https://kv-microservices-local.vault.azure.net/
 
-FASE 4                         ⏭️ AHORA
+FASE 4                         ✅ COMPLETADA
    └── Service Bus
         └── order-created
 
-FASE 5
+FASE 5                         ⏭️ AHORA
    └── PostgreSQL
 
 FASE 6

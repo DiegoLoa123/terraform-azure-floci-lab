@@ -45,3 +45,18 @@ output "key_vault_uri" {
   description = "Local Key Vault data-plane URI returned by Floci-AZ."
   value       = azurerm_key_vault.microservices.vault_uri
 }
+
+
+# ============================================================
+# Service Bus - Floci-AZ
+# ============================================================
+
+output "service_bus_queue_name" {
+  description = "Name of the Service Bus queue."
+  value       = var.service_bus_queue_name
+}
+
+output "service_bus_management_endpoint" {
+  description = "Floci-AZ Service Bus management endpoint."
+  value       = "http://127.0.0.1:4577/devstoreaccount1-servicebus"
+}

@@ -71,3 +71,46 @@ resource "azurerm_key_vault" "microservices" {
   soft_delete_retention_days = 90
   purge_protection_enabled   = false
 }
+
+
+
+
+
+# ============================================================
+# Service Bus - Floci-AZ
+# ============================================================
+
+resource "terraform_data" "service_bus_queue" {
+
+  input = {
+    endpoint   = "http://127.0.0.1:4577/devstoreaccount1-servicebus"
+    queue_name = var.service_bus_queue_name
+  }
+
+  triggers_replace = [
+    var.service_bus_queue_name
+  ]
+
+  provisioner "local-exec" {
+    interpreter = ["PowerShell", "-NoProfile", "-Command"]
+
+    command = <<-EOT
+      Invoke-WebRequest `
+        -Uri "${self.input.endpoint}/${self.input.queue_name}" `
+        -Method PUT `
+        -UseBasicParsing | Out-Null
+    EOT
+  }
+
+  provisioner "local-exec" {
+    when        = destroy
+    interpreter = ["PowerShell", "-NoProfile", "-Command"]
+
+    command = <<-EOT
+      Invoke-WebRequest `
+        -Uri "${self.input.endpoint}/${self.input.queue_name}" `
+        -Method DELETE `
+        -UseBasicParsing | Out-Null
+    EOT
+  }
+}
