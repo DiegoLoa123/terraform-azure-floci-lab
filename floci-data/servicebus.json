@@ -1,0 +1,9 @@
+{
+  "sb/devstoreaccount1/default/queues/order-created" : {
+    "key" : "sb/devstoreaccount1/default/queues/order-created",
+    "data" : "eyJuYW1lIjoib3JkZXItY3JlYXRlZCIsIm1heERlbGl2ZXJ5Q291bnQiOjEwLCJsb2NrRHVyYXRpb25TZWNvbmRzIjo2MCwibWF4U2l6ZUluTWVnYWJ5dGVzIjoxMDI0LCJyZXF1aXJlc1Nlc3Npb24iOmZhbHNlLCJyZXF1aXJlc0R1cGxpY2F0ZURldGVjdGlvbiI6ZmFsc2UsImR1cGxpY2F0ZURldGVjdGlvbkhpc3RvcnlTZWNvbmRzIjo2MDAsImRlZmF1bHRNZXNzYWdlVHRsTWlsbGlzIjoxMjA5NjAwMDAwLCJkZWFkTGV0dGVyaW5nT25NZXNzYWdlRXhwaXJhdGlvbiI6ZmFsc2UsImNyZWF0ZWRBdCI6IjIwMjYtMDktMzBUMjM6Mjg6NTcuMzA5OTcxMTg5WiIsInVwZGF0ZWRBdCI6IjIwMjYtMDktMzBUMjM6Mjg6NTcuMzA5OTcxMTg5WiJ9",
+    "metadata" : { },
+    "lastModified" : "2026-09-30T23:28:57.321950406Z",
+    "etag" : "sb/devstoreaccount1/default/queues/order-created"
+  }
+}
