@@ -60,3 +60,23 @@ output "service_bus_management_endpoint" {
   description = "Floci-AZ Service Bus management endpoint."
   value       = "http://127.0.0.1:4577/devstoreaccount1-servicebus"
 }
+
+
+# ============================================================
+# PostgreSQL
+# ============================================================
+
+output "postgresql_server_name" {
+  description = "Name of the PostgreSQL Flexible Server."
+  value       = azurerm_postgresql_flexible_server.microservices.name
+}
+
+output "postgresql_server_id" {
+  description = "Resource ID of the PostgreSQL Flexible Server."
+  value       = azurerm_postgresql_flexible_server.microservices.id
+}
+
+output "postgresql_admin_username" {
+  description = "Administrator username used by PostgreSQL."
+  value       = var.postgresql_admin_username
+}

@@ -21,10 +21,10 @@ FASE 4                         ✅ COMPLETADA
    └── Service Bus
         └── order-created
 
-FASE 5                         ⏭️ AHORA
+FASE 5                         ✅ COMPLETADA
    └── PostgreSQL
 
-FASE 6
+FASE 6                         ⏭️ Pendiente
    └── AKS
         ├── order-service
         ├── product-service

@@ -1,3 +1,15 @@
+# Floci-AZ local persistent state
+floci-data/
+
+# Terraform local state
+*.tfstate
+*.tfstate.*
+.terraform/
+
+# Local certificates / secrets
+*.crt
+*.key
+
 # Terraform
 **/.terraform/*
 *.tfstate

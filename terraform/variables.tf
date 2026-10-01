@@ -89,3 +89,37 @@ variable "service_bus_queue_name" {
   type        = string
   default     = "order-created"
 }
+
+# ============================================================
+# PostgreSQL
+# ============================================================
+
+variable "postgresql_server_name" {
+  description = "Name of the PostgreSQL Flexible Server."
+  type        = string
+  default     = "pg-microservices-local"
+}
+
+variable "postgresql_version" {
+  description = "PostgreSQL version used by the local laboratory."
+  type        = string
+  default     = "16"
+}
+
+variable "postgresql_admin_username" {
+  description = "Administrator username for PostgreSQL."
+  type        = string
+  default     = "pgadmin"
+}
+
+variable "postgresql_admin_password" {
+  description = "Administrator password for PostgreSQL."
+  type        = string
+  sensitive   = true
+}
+
+variable "postgresql_database_name" {
+  description = "Application database used by the microservices."
+  type        = string
+  default     = "microservices"
+}

@@ -73,9 +73,6 @@ resource "azurerm_key_vault" "microservices" {
 }
 
 
-
-
-
 # ============================================================
 # Service Bus - Floci-AZ
 # ============================================================
@@ -113,4 +110,24 @@ resource "terraform_data" "service_bus_queue" {
         -UseBasicParsing | Out-Null
     EOT
   }
+}
+
+
+# ============================================================
+# PostgreSQL Flexible Server - Floci-AZ
+# ============================================================
+
+resource "azurerm_postgresql_flexible_server" "microservices" {
+  name                = var.postgresql_server_name
+  resource_group_name = azurerm_resource_group.microservices.name
+  location            = azurerm_resource_group.microservices.location
+
+  version = var.postgresql_version
+
+  administrator_login    = var.postgresql_admin_username
+  administrator_password = var.postgresql_admin_password
+
+  storage_mb = 32768
+
+  sku_name = "B_Standard_B1ms"
 }
