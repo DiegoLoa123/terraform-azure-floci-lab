@@ -131,3 +131,26 @@ resource "azurerm_postgresql_flexible_server" "microservices" {
 
   sku_name = "B_Standard_B1ms"
 }
+
+
+# ============================================================
+# AKS - Floci-AZ
+# ============================================================
+
+resource "azurerm_kubernetes_cluster" "microservices" {
+  name                = var.aks_cluster_name
+  location            = azurerm_resource_group.microservices.location
+  resource_group_name = azurerm_resource_group.microservices.name
+  dns_prefix          = var.aks_dns_prefix
+
+  default_node_pool {
+    name           = var.aks_node_pool_name
+    node_count     = var.aks_node_count
+    vm_size        = var.aks_vm_size
+    vnet_subnet_id = azurerm_subnet.aks.id
+  }
+
+  identity {
+    type = "SystemAssigned"
+  }
+}

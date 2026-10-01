@@ -80,3 +80,23 @@ output "postgresql_admin_username" {
   description = "Administrator username used by PostgreSQL."
   value       = var.postgresql_admin_username
 }
+
+
+# ============================================================
+# AKS
+# ============================================================
+
+output "aks_cluster_name" {
+  description = "Name of the AKS cluster."
+  value       = azurerm_kubernetes_cluster.microservices.name
+}
+
+output "aks_cluster_id" {
+  description = "Resource ID of the AKS cluster."
+  value       = azurerm_kubernetes_cluster.microservices.id
+}
+
+output "aks_node_resource_group" {
+  description = "Node resource group represented by the AKS cluster."
+  value       = azurerm_kubernetes_cluster.microservices.node_resource_group
+}

@@ -24,11 +24,13 @@ FASE 4                         ✅ COMPLETADA
 FASE 5                         ✅ COMPLETADA
    └── PostgreSQL
 
-FASE 6                         ⏭️ Pendiente
-   └── AKS
-        ├── order-service
-        ├── product-service
-        └── inventory-service
+FASE 6                         ✅ COMPLETADA
+├── 6A AKS                     ✅ COMPLETADA
+├── 6B ACR                     ⏭️ SIGUIENTE
+└── 6C Deployments
+    ├── order-service
+    ├── product-service
+    └── inventory-service
 
 FASE 7
    └── API Management

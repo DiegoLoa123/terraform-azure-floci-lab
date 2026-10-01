@@ -123,3 +123,38 @@ variable "postgresql_database_name" {
   type        = string
   default     = "microservices"
 }
+
+
+# ============================================================
+# AKS
+# ============================================================
+
+variable "aks_cluster_name" {
+  description = "Name of the AKS cluster used by the microservices laboratory."
+  type        = string
+  default     = "aks-microservices-local"
+}
+
+variable "aks_dns_prefix" {
+  description = "DNS prefix used by the AKS cluster."
+  type        = string
+  default     = "aks-microservices"
+}
+
+variable "aks_node_pool_name" {
+  description = "Name of the default AKS node pool."
+  type        = string
+  default     = "system"
+}
+
+variable "aks_node_count" {
+  description = "Number of nodes in the default AKS node pool."
+  type        = number
+  default     = 1
+}
+
+variable "aks_vm_size" {
+  description = "VM size represented by the local AKS node pool."
+  type        = string
+  default     = "Standard_DS2_v2"
+}
