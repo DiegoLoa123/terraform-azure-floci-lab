@@ -153,4 +153,24 @@ resource "azurerm_kubernetes_cluster" "microservices" {
   identity {
     type = "SystemAssigned"
   }
+
+  # Floci-AZ returns some AKS properties differently from Azure.
+  # The cluster is already running and was imported into Terraform state.
+  lifecycle {
+    ignore_changes = all
+  }
+}
+
+
+# ============================================================
+# Azure Container Registry - Floci-AZ
+# ============================================================
+
+resource "azurerm_container_registry" "microservices" {
+  name                = var.acr_name
+  resource_group_name = azurerm_resource_group.microservices.name
+  location            = azurerm_resource_group.microservices.location
+
+  sku           = "Basic"
+  admin_enabled = true
 }

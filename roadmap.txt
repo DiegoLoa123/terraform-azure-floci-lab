@@ -26,11 +26,18 @@ FASE 5                         ✅ COMPLETADA
 
 FASE 6                         ✅ COMPLETADA
 ├── 6A AKS                     ✅ COMPLETADA
-├── 6B ACR                     ⏭️ SIGUIENTE
-└── 6C Deployments
+├── 6B ACR                     ✅ COMPLETADA
+└── 6C Deployments             ⏭️ SIGUIENTE
     ├── order-service
     ├── product-service
     └── inventory-service
 
 FASE 7
    └── API Management
+
+CIERRE
+├── limpiar proyecto
+├── roadmap final
+├── README bonito
+├── screenshots/evidencias
+└── GitHub 🚀

@@ -100,3 +100,18 @@ output "aks_node_resource_group" {
   description = "Node resource group represented by the AKS cluster."
   value       = azurerm_kubernetes_cluster.microservices.node_resource_group
 }
+
+
+# ============================================================
+# Azure Container Registry
+# ============================================================
+
+output "acr_name" {
+  description = "Name of the Azure Container Registry."
+  value       = azurerm_container_registry.microservices.name
+}
+
+output "acr_login_server" {
+  description = "Login server of the Azure Container Registry."
+  value       = azurerm_container_registry.microservices.login_server
+}

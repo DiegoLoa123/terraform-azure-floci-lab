@@ -158,3 +158,14 @@ variable "aks_vm_size" {
   type        = string
   default     = "Standard_DS2_v2"
 }
+
+
+# ============================================================
+# Azure Container Registry
+# ============================================================
+
+variable "acr_name" {
+  description = "Name of the Azure Container Registry."
+  type        = string
+  default     = "acrmicroserviceslocal"
+}
