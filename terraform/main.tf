@@ -173,4 +173,109 @@ resource "azurerm_container_registry" "microservices" {
 
   sku           = "Basic"
   admin_enabled = true
+
+  # Floci-AZ compatibility:
+  # Avoid provider drift after importing the locally emulated registry.
+  lifecycle {
+    ignore_changes = all
+  }
+}
+
+
+
+
+
+
+
+
+
+# ============================================================
+# API Management - Floci-AZ
+# ============================================================
+
+resource "terraform_data" "api_management" {
+
+  provisioner "local-exec" {
+    interpreter = ["PowerShell", "-Command"]
+
+    command = <<-EOT
+      $ErrorActionPreference = "Stop"
+
+      $base = "http://127.0.0.1:4577"
+      $subscription = "00000000-0000-0000-0000-000000000001"
+      $resourceGroup = "rg-microservices-local"
+      $apim = "apim-microservices-local"
+      $apiVersion = "2022-08-01"
+
+      $servicePath = "$base/subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.ApiManagement/service/$apim"
+
+      Write-Host "Creating/updating API Management..."
+
+      $serviceBody = @{
+        location = "eastus"
+        sku = @{
+          name     = "Developer"
+          capacity = 1
+        }
+        properties = @{
+          publisherName  = "Microservices Lab"
+          publisherEmail = "admin@example.com"
+        }
+      } | ConvertTo-Json -Depth 10
+
+      $serviceUri = $servicePath + "?api-version=" + $apiVersion
+
+      Write-Host "APIM URI: $serviceUri"
+
+      Invoke-RestMethod `
+        -Method Put `
+        -Uri $serviceUri `
+        -ContentType "application/json" `
+        -Body $serviceBody
+
+      $apis = @(
+        @{
+          name        = "orders-api"
+          displayName = "Orders API"
+          path        = "orders"
+        },
+        @{
+          name        = "products-api"
+          displayName = "Products API"
+          path        = "products"
+        },
+        @{
+          name        = "inventory-api"
+          displayName = "Inventory API"
+          path        = "inventory"
+        }
+      )
+
+      foreach ($api in $apis) {
+
+        Write-Host "Creating API: $($api.name)"
+
+        $apiBody = @{
+          properties = @{
+            displayName          = $api.displayName
+            path                 = $api.path
+            protocols            = @("http")
+            subscriptionRequired = $false
+          }
+        } | ConvertTo-Json -Depth 10
+
+        $apiUri = $servicePath + "/apis/" + $api.name + "?api-version=" + $apiVersion
+
+        Write-Host "API URI: $apiUri"
+
+        Invoke-RestMethod `
+          -Method Put `
+          -Uri $apiUri `
+          -ContentType "application/json" `
+          -Body $apiBody
+      }
+
+      Write-Host "API Management configuration completed."
+    EOT
+  }
 }

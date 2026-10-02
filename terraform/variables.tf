@@ -169,3 +169,26 @@ variable "acr_name" {
   type        = string
   default     = "acrmicroserviceslocal"
 }
+
+
+# ============================================================
+# API Management
+# ============================================================
+
+variable "apim_name" {
+  description = "Name of the API Management service."
+  type        = string
+  default     = "apim-microservices-local"
+}
+
+variable "apim_publisher_name" {
+  description = "Publisher name used by API Management."
+  type        = string
+  default     = "Microservices Lab"
+}
+
+variable "apim_publisher_email" {
+  description = "Publisher email used by API Management."
+  type        = string
+  default     = "admin@example.com"
+}

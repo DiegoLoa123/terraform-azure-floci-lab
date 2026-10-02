@@ -1,43 +1,33 @@
 
-FASE 1                         ✅ COMPLETADA
-Terraform → Floci-AZ
-   └── Resource Group          ✅ rg-microservices-local
-
-FASE 2                         ✅ COMPLETADA
-   └── Virtual Network         ✅ 10.0.0.0/16
-        ├── subnet-aks         ✅ 10.0.1.0/24
-        └── subnet-data        ✅ 10.0.2.0/24
-
-FASE 3
-├── Storage Account            ✅ COMPLETADA
-├── Blob Container
-│   └── microservices          ✅ integrado
-└── Key Vault
-    └── kv-microservices-local ✅ integrado
-        └── vault_uri:
-            https://kv-microservices-local.vault.azure.net/
-
-FASE 4                         ✅ COMPLETADA
-   └── Service Bus
-        └── order-created
-
-FASE 5                         ✅ COMPLETADA
-   └── PostgreSQL
-
-FASE 6                         ✅ COMPLETADA
-├── 6A AKS                     ✅ COMPLETADA
-├── 6B ACR                     ✅ COMPLETADA
-└── 6C Deployments             ✅ COMPLETADA
-    ├── order-service
-    ├── product-service
-    └── inventory-service
-
-FASE 7
-   └── API Management          ⏭️ SIGUIENTE
-
-CIERRE
-├── limpiar proyecto
-├── roadmap final
-├── README bonito
-├── screenshots/evidencias
-└── GitHub 🚀
+terraform-floci-lab
+│
+├── FASE 1 — Resource Group                    ✅
+│
+├── FASE 2 — Networking                        ✅
+│   ├── Virtual Network
+│   ├── subnet-aks
+│   └── subnet-data
+│
+├── FASE 3 — Storage + Security                ✅
+│   ├── Storage Account
+│   ├── Blob Container
+│   └── Key Vault
+│
+├── FASE 4 — Messaging                         ✅
+│   └── Service Bus
+│       └── order-created
+│
+├── FASE 5 — Database                          ✅
+│   └── PostgreSQL Flexible Server
+│
+├── FASE 6 — Containers                        ✅
+│   ├── ACR
+│   └── AKS / k3s
+│       ├── order-service       Running
+│       ├── product-service     Running
+│       └── inventory-service   Running
+│
+└── FASE 7 — API Management                    ✅
+    ├── /orders
+    ├── /products
+    └── /inventory
